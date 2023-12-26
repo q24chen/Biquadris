@@ -1,0 +1,121 @@
+<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><element><id>Relation</id><coordinates><x>55</x><y>781</y><w>121</w><h>242</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=group-0</panel_attributes><additional_attributes>50;10;10;10;10;200;90;200</additional_attributes></element><element><id>Relation</id><coordinates><x>55</x><y>781</y><w>121</w><h>143</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=group-0</panel_attributes><additional_attributes>50;10;10;10;10;110;90;110</additional_attributes></element><element><id>Relation</id><coordinates><x>55</x><y>781</y><w>121</w><h>176</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=group-0</panel_attributes><additional_attributes>50;10;10;10;10;140;90;140</additional_attributes></element><element><id>Relation</id><coordinates><x>55</x><y>781</y><w>121</w><h>209</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=group-0</panel_attributes><additional_attributes>50;10;10;10;10;170;90;170</additional_attributes></element><element><id>Relation</id><coordinates><x>55</x><y>781</y><w>121</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-
+group=group-0</panel_attributes><additional_attributes>50;10;10;10;10;80;90;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>407</x><y>275</y><w>308</w><h>473</h></coordinates><panel_attributes>/AbstractBoard/
+--
+# grid: std::vector&lt;std::vector
+&lt;unique_ptr&lt;Cell&gt;&gt;&gt;
+# curBlock: std::unique_ptr&lt;Block&gt;
+--
+/+ createNext(): void= 0/
+/+ getCell(int row, int col): char = 0/
+/+ deleteRow(int y): void = 0/
+/+ moveBlock(char dir, int repeat):bool = 0/
+/+ searchID(int id): bool = 0/
+/+ dropCenter(): bool = 0/
+/+ drop() : int = 0/
+/+ rotateBlock(std::string dir): void = 0/
+/+ getScore(): int = 0/
+/+ getLev() : int = 0/
+/+ levelUp(): void = 0/
+/+ levelDown(): void = 0/
+/+ getPlayer(): int = 0/
+/+ getNext(int row, int col): char = 0/
+/+ changeNext(char type): void = 0/
+/+ whatBoard(): char = 0/
+/+ releaseInnerComponent(): /
+/	unique_ptr&lt;AbstractBoard&gt; = 0/
+/+ isHeavy(): bool = 0/
+/+ deleteCur(): void = 0/
+/+ random(): void = 0/
+/+ noRandom(std::string file): void = 0/
+/+ changeCur(char pattern): void = 0/
+
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>814</y><w>88</w><h>22</h></coordinates><panel_attributes>IBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>726</y><w>209</w><h>110</h></coordinates><panel_attributes>/Level/
+--
+/+ nextType(int lev): char = 0/
+/+ getDir(): int/
+/+ noRandom(std::string file): void/
+/+ random(): void/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>847</x><y>539</y><w>198</w><h>253</h></coordinates><panel_attributes>/Block/
+--
+# board: vector&lt;vector
+&lt;unique_ptr&lt;Cell&gt;&gt;&gt;&amp;
+--
+/+ clockRotate(): void = 0/
+/+ counterRotate(): void = 0/
+/+ down(): bool/
+/+ horizontal(int dir): void/
+/+ update(char word, int id): void /
+/+ geID(): int/
+/+ getLev(): int/
+/+ getPattern(): char/
+/+ getCell(int row, int col): char/
+/+ canFit(): bool/
+/+ removeCur(): void/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>924</x><y>385</y><w>110</w><h>33</h></coordinates><panel_attributes>Blind
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>792</x><y>385</y><w>110</w><h>33</h></coordinates><panel_attributes>Heavy
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>847</y><w>88</w><h>22</h></coordinates><panel_attributes>OBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>1012</y><w>88</w><h>22</h></coordinates><panel_attributes>TBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>979</y><w>88</w><h>22</h></coordinates><panel_attributes>SBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>946</y><w>88</w><h>22</h></coordinates><panel_attributes>ZBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>913</y><w>88</w><h>22</h></coordinates><panel_attributes>LBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>880</x><y>880</y><w>88</w><h>22</h></coordinates><panel_attributes>JBlock
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>418</x><y>781</y><w>253</w><h>77</h></coordinates><panel_attributes>/Board/
+--
+- level: unique_ptr&lt;Level&gt;
+- nextBlock: unique_ptr&lt;Block&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>11</y><w>374</w><h>242</h></coordinates><panel_attributes>View
+--
+- isGraphic: bool
+- graph: std::unique_ptr&lt;Xwindow&gt;
+--
++ drawLevel(int level): void
++ drawScore(int score): void
++ drawBoard(const unique_ptr&lt;AbstractBoard&gt; &amp;p1, 
+	const unique_ptr&lt;AbstractBoard&gt; &amp;p2): void
++ drawNext(const unique_ptr&lt;AbstractBoard&gt; &amp;p): void
++ graphicDisplay(const unique_ptr&lt;AbstractBoard&gt; 
+	&amp;p1, const std::unique_ptr&lt;AbstractBoard&gt; &amp;p2): void
++ graphicColor(char type): int
++ graphicMsg(int x, int y, std::string msg): void
++ graphicFill(int x, int y, int width, int height, int color): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>77</x><y>462</y><w>231</w><h>187</h></coordinates><panel_attributes>Cell
+--
+- id: int
+- x: int
+- y: int
+- pattern: char
+--
++ setPattern(char var, int id): void
++ getId(): int
++ getPattern() const : char
++ setPos(int x, int y): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>154</x><y>858</y><w>88</w><h>22</h></coordinates><panel_attributes>Level0
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>154</x><y>957</y><w>88</w><h>22</h></coordinates><panel_attributes>Level3
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>154</x><y>924</y><w>88</w><h>22</h></coordinates><panel_attributes>Level2
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>154</x><y>891</y><w>88</w><h>22</h></coordinates><panel_attributes>Level1
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>154</x><y>990</y><w>88</w><h>22</h></coordinates><panel_attributes>Level4
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>308</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;260;80;260</additional_attributes></element><element><id>Relation</id><coordinates><x>308</x><y>803</y><w>132</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>275</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;230;80;230</additional_attributes></element><element><id>Relation</id><coordinates><x>946</x><y>319</y><w>33</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>847</x><y>319</y><w>33</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>242</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;200;80;200</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>209</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;170;80;170</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>176</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;140;80;140</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>143</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;110;80;110</additional_attributes></element><element><id>Relation</id><coordinates><x>792</x><y>737</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;80;80;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>77</x><y>308</y><w>231</w><h>110</h></coordinates><panel_attributes>Xwindow
+--
++ drawString(int x, int y, 
+	std::string msg): void
++ fillRectangle(int x, int y, int width, 
+	int height, int colour): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>429</x><y>0</y><w>297</w><h>209</h></coordinates><panel_attributes>Game
+--
+- display: unique_ptr&lt;View&gt;
+- player1: unique_ptr&lt;Board&gt;
+- player2: unique_ptr&lt;Board&gt;
+- hScore: int
+--
++ readFile(std::string filename): std::string
++ cmdInterpreter(std::string cmd): void
++ render(): void
++ startGame(): void
++ restart(): void
++ setHighScore(int num): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>671</y><w>209</w><h>165</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;130;100;130;100;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>198</y><w>33</w><h>99</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>363</x><y>99</y><w>88</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>176</x><y>242</y><w>33</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>825</x><y>253</y><w>165</w><h>77</h></coordinates><panel_attributes>/Decorator/
+--
+# board: unique_ptr
+&lt;AbstractBoard&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>275</y><w>143</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;10</additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>539</y><w>132</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>539</y><w>165</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>528</x><y>737</y><w>33</w><h>66</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>308</y><w>143</w><h>33</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>594</y><w>1023</w><h>484</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>910;180;910;420;10;420;10;10;70;10</additional_attributes></element></diagram>
